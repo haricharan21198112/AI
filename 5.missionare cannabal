@@ -1,0 +1,43 @@
+from collections import deque
+
+# State: (missionaries_left, cannibals_left, boat_position)
+# boat_position: 1 = left side, 0 = right side
+
+def is_valid(m, c):
+    return (m == 0 or m >= c) and (3 - m == 0 or (3 - m) >= (3 - c))
+
+def get_successors(state):
+    m, c, b = state
+    moves = [(1,0), (2,0), (0,1), (0,2), (1,1)]
+    successors = []
+
+    for mm, cc in moves:
+        if b == 1:
+            new_m, new_c, new_b = m - mm, c - cc, 0
+        else:
+            new_m, new_c, new_b = m + mm, c + cc, 1
+        
+        if 0 <= new_m <= 3 and 0 <= new_c <= 3 and is_valid(new_m, new_c):
+            successors.append((new_m, new_c, new_b))
+
+    return successors
+
+def solve():
+    start = (3, 3, 1)
+    goal = (0, 0, 0)
+    queue = deque([(start, [])])
+    visited = set()
+
+    while queue:
+        current, path = queue.popleft()
+        if current in visited:
+            continue
+        visited.add(current)
+        if current == goal:
+            for step in path + [current]:
+                print(step)
+            return
+        for next_state in get_successors(current):
+            queue.append((next_state, path + [current]))
+
+solve()
