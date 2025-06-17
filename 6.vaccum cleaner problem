@@ -1,0 +1,29 @@
+def vacuum_world():
+    # Initial states: location of vacuum and dirt status
+    state = {
+        'current': 'A',
+        'A': 'Dirty',
+        'B': 'Dirty'
+    }
+
+    print("Initial State:", state)
+
+    # Simple reflex agent logic
+    def clean(state):
+        if state[state['current']] == 'Dirty':
+            print(f"Cleaning {state['current']}")
+            state[state['current']] = 'Clean'
+        elif state['current'] == 'A':
+            print("Moving to B")
+            state['current'] = 'B'
+        elif state['current'] == 'B':
+            print("Moving to A")
+            state['current'] = 'A'
+
+    # Run until both rooms are clean
+    while state['A'] == 'Dirty' or state['B'] == 'Dirty':
+        clean(state)
+
+    print("Final State:", state)
+
+vacuum_world()
