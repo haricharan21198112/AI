@@ -1,0 +1,14 @@
+# Function to display planet data
+def show_planet(name, distance, moons):
+    print("\n--- Planet Details ---")
+    print("Planet Name       :", name)
+    print("Distance from Sun :", distance, "million km")
+    print("Number of Moons   :", moons)
+
+# Input from user
+name = input("Enter planet name: ")
+distance = input("Enter distance from sun (in million km): ")
+moons = input("Enter number of moons: ")
+
+# Call function
+show_planet(name, distance, moons)
