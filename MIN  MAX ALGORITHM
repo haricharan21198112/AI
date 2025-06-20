@@ -1,0 +1,19 @@
+def minimax(depth, is_max, values, index):
+    if depth == 3:
+        return values[index]
+    if is_max:
+        return max(
+            minimax(depth+1, False, values, 2*index),
+            minimax(depth+1, False, values, 2*index + 1)
+        )
+    else:
+        return min(
+            minimax(depth+1, True, values, 2*index),
+            minimax(depth+1, True, values, 2*index + 1)
+        )
+
+# --- Input from user ---
+values = list(map(int, input("Enter 8 leaf node values separated by space: ").split()))
+
+# --- Output best value ---
+print("Best value:", minimax(0, True, values, 0))
