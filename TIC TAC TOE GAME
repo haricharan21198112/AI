@@ -1,0 +1,40 @@
+# Simple 2-player Tic Tac Toe game in Python
+
+# Initialize board
+board = [' ' for _ in range(9)]
+
+# Print board
+def print_board():
+    for i in range(0, 9, 3):
+        print(board[i] + ' | ' + board[i+1] + ' | ' + board[i+2])
+        if i < 6:
+            print('--+---+--')
+
+# Check winner
+def check_winner(p):
+    win = [(0,1,2), (3,4,5), (6,7,8),
+           (0,3,6), (1,4,7), (2,5,8),
+           (0,4,8), (2,4,6)]
+    return any(board[i]==board[j]==board[k]==p for i,j,k in win)
+
+# Main game loop
+def play():
+    player = 'X'
+    for turn in range(9):
+        print_board()
+        move = int(input(f"Player {player}, choose position (0-8): "))
+        if board[move] == ' ':
+            board[move] = player
+            if check_winner(player):
+                print_board()
+                print(f"Player {player} wins!")
+                return
+            player = 'O' if player == 'X' else 'X'
+        else:
+            print("Invalid move. Try again.")
+            continue
+    print_board()
+    print("It's a draw!")
+
+# Run game
+play()
