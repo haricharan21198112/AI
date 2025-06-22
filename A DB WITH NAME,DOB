@@ -1,11 +1,3 @@
-# Function to display name and DOB
-def display_info(name, dob):
-    print("Name:", name)
-    print("Date of Birth:", dob)
-
-# Input from user
-name = input("Enter your name: ")
-dob = input("Enter your date of birth (DD-MM-YYYY): ")
-
-# Call function to display
-display_info(name, dob)
+person(john, '1999-05-12').
+person(mary, '2000-11-25').
+person(alex, '1995-07-14').
