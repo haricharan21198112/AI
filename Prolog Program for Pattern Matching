@@ -1,0 +1,9 @@
+% pattern_match(Pattern, List) is true if Pattern is a sublist of List
+
+pattern_match(Pattern, List) :- 
+    append(_, rest, List),
+    append(Pattern, _, rest).
+
+% Example usage:
+% ?- pattern_match([b, c], [a, b, c, d]).
+% true.
