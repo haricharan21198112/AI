@@ -1,16 +1,3 @@
-# Function to display student, teacher, and subject details
-def show_details(student, teacher, subject, code):
-    print("\n--- Details ---")
-    print("Student Name :", student)
-    print("Teacher Name :", teacher)
-    print("Subject Name :", subject)
-    print("Subject Code :", code)
-
-# Input from user
-student = input("Enter student name: ")
-teacher = input("Enter teacher name: ")
-subject = input("Enter subject name: ")
-code = input("Enter subject code: ")
-
-# Call function
-show_details(student, teacher, subject, code)
+teaches(mr_smith, math101, john).
+teaches(ms_jane, phy101, mary).
+teaches(mr_lee, chem101, alex).
