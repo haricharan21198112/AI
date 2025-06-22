@@ -1,0 +1,8 @@
+at(monkey, room).
+at(banana, ceiling).
+at(box, floor).
+can_climb(monkey).
+can_move(monkey, box).
+can_reach(monkey) :- at(monkey, box), can_climb(monkey).
+
+% Solution steps can be modeled as actions to reach banana
