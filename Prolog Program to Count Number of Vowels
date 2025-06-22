@@ -1,0 +1,17 @@
+% is_vowel(Char) is true if Char is a vowel
+is_vowel(a).
+is_vowel(e).
+is_vowel(i).
+is_vowel(o).
+is_vowel(u).
+
+% count_vowels(List, Count) - counts vowels in List
+count_vowels([], 0).
+count_vowels([H|T], Count) :-
+    is_vowel(H),
+    count_vowels(T, Rest),
+    Count is Rest + 1.
+
+count_vowels([H|T], Count) :-
+    \+ is_vowel(H),
+    count_vowels(T, Count).
