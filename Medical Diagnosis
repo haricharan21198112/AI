@@ -1,0 +1,3 @@
+symptom(john, fever).
+symptom(john, cough).
+disease(flu) :- symptom(_, fever), symptom(_, cough).
