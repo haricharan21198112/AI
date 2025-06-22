@@ -1,4 +1,9 @@
-def sum_upto_n(n):
-    return n * (n + 1) // 2
-n = int(input("Enter a number: "))
-print("Sum from 1 to", n, "is:", sum_upto_n(n))
+% sum_to_n(N, Sum) - Sum is the sum of integers from 1 to N
+
+sum_to_n(1, 1).  % Base case
+
+sum_to_n(N, Sum) :-
+    N > 1,
+    N1 is N - 1,
+    sum_to_n(N1, Sum1),
+    Sum is Sum1 + N.
